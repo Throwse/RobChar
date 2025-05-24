@@ -1,101 +1,104 @@
-RoBChar FIRST MONTH-SARY
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Our Monthsary Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Monthsary 💖</title>
   <style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    background-color: #111; /* change this to match your theme */
-  }
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: #fff0f5;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
 
-  .heart {
-    position: fixed;
-    width: 16px;
-    height: 16px;
-    background: url('https://i.imgur.com/tYcYQek.png') no-repeat center/contain;
-    pointer-events: none;
-    animation: floatHeart 5s linear infinite;
-    opacity: 0.8;
-  }
+    .photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 0 20px #f06292;
+    }
 
-  @keyframes floatHeart {
-    0% {
-      transform: translateY(100vh) scale(1);
+    .dialogue {
+      margin-top: 20px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dialogue p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .btns button {
+      background: #f06292;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btns button:hover {
+      background: #ec407a;
+    }
+
+    .heart {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: url('https://i.imgur.com/JwL8kxI.png') no-repeat center/contain;
+      pointer-events: none;
+      animation: floatHeart 5s linear infinite;
       opacity: 0.8;
     }
-    100% {
-      transform: translateY(-10vh) scale(1.2);
-      opacity: 0;
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
     }
-  }
-</style>
-    body { font-family: sans-serif; background: #fff0f5; padding: 20px; text-align: center; }
-    nav button { margin: 5px; padding: 10px; cursor: pointer; }
-    section { display: none; }
-    section.active { display: block; }
   </style>
 </head>
 <body>
-  <h1>Happy Monthsary, Babe 💖</h1>
-  <nav>
-    <button onclick="showTab('date')">🗓️ Date Nights</button>
-    <button onclick="showTab('movies')">🎬 Movie List</button>
-    <button onclick="showTab('draw')">🎨 Doodle Pad</button>
-    <button onclick="showTab('photos')">📸 Photos</button>
-  </nav>
-
-  <section id="date" class="active">
-    <h2>Schedule Our Date Nights</h2>
-    <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendar" style="border: 0" width="600" height="400"></iframe>
-  </section>
-
-  <section id="movies">
-    <h2>Movie List 🎥</h2>
-    <ul>
-      <li>📌 To Watch: <input type="text"> <button>Add</button></li>
-      <li>✅ Watched: ...</li>
-    </ul>
-  </section>
-
-  <section id="draw">
-    <h2>Doodle Pad</h2>
-    <canvas id="canvas" width="300" height="300" style="border:1px solid #000;"></canvas><br>
-    <button onclick="clearCanvas()">Clear</button>
-  </section>
-
-  <section id="photos">
-    <h2>Our Memories</h2>
-    <img src="your-photo.jpg" alt="us" width="200">
-    <!-- Add more photos -->
-  </section>
+  <img src="dog1.jpg" alt="Photo" class="photo" />
+  <div class="dialogue">
+    <p>Hey babe 💕 I made this just for us.<br>Wanna pick something fun to do together?</p>
+    <div class="btns">
+      <button onclick="alert('Coming soon: date night ideas!')">Date Night Ideas</button>
+      <button onclick="alert('Strawberry Heart Fun Games coming soon!')">Fun Games</button>
+      <button onclick="alert('Drawing board launching soon!')">Draw Together</button>
+      <button onclick="alert('Photo gallery coming soon!')">Our Gallery</button>
+    </div>
+  </div>
 
   <script>
-    function showTab(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
     }
-
-    // Drawing script
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    let drawing = false;
-
-    canvas.addEventListener('mousedown', () => drawing = true);
-    canvas.addEventListener('mouseup', () => drawing = false);
-    canvas.addEventListener('mousemove', e => {
-      if (!drawing) return;
-      const rect = canvas.getBoundingClientRect();
-      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-      ctx.stroke();
-    });
-
-    function clearCanvas() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    setInterval(createHeart, 500);
   </script>
 </body>
 </html>
