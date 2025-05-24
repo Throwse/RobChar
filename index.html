@@ -1,0 +1,79 @@
+
+🚀 Starter Code (with Tabs)
+Here’s a basic version I’ll help you expand:
+
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Monthsary Site</title>
+  <style>
+    body { font-family: sans-serif; background: #fff0f5; padding: 20px; text-align: center; }
+    nav button { margin: 5px; padding: 10px; cursor: pointer; }
+    section { display: none; }
+    section.active { display: block; }
+  </style>
+</head>
+<body>
+  <h1>Happy Monthsary, Babe 💖</h1>
+  <nav>
+    <button onclick="showTab('date')">🗓️ Date Nights</button>
+    <button onclick="showTab('movies')">🎬 Movie List</button>
+    <button onclick="showTab('draw')">🎨 Doodle Pad</button>
+    <button onclick="showTab('photos')">📸 Photos</button>
+  </nav>
+
+  <section id="date" class="active">
+    <h2>Schedule Our Date Nights</h2>
+    <iframe src="https://calendar.google.com/calendar/embed?src=yourcalendar" style="border: 0" width="600" height="400"></iframe>
+  </section>
+
+  <section id="movies">
+    <h2>Movie List 🎥</h2>
+    <ul>
+      <li>📌 To Watch: <input type="text"> <button>Add</button></li>
+      <li>✅ Watched: ...</li>
+    </ul>
+  </section>
+
+  <section id="draw">
+    <h2>Doodle Pad</h2>
+    <canvas id="canvas" width="300" height="300" style="border:1px solid #000;"></canvas><br>
+    <button onclick="clearCanvas()">Clear</button>
+  </section>
+
+  <section id="photos">
+    <h2>Our Memories</h2>
+    <img src="your-photo.jpg" alt="us" width="200">
+    <!-- Add more photos -->
+  </section>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // Drawing script
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    canvas.addEventListener('mousedown', () => drawing = true);
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mousemove', e => {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+    });
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
