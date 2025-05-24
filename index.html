@@ -1,16 +1,38 @@
+RoBChar FIRST MONTH-SARY
 
-🚀 Starter Code (with Tabs)
-Here’s a basic version I’ll help you expand:
-
-html
-Copy
-Edit
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Our Monthsary Site</title>
   <style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #111; /* change this to match your theme */
+  }
+
+  .heart {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: url('https://i.imgur.com/tYcYQek.png') no-repeat center/contain;
+    pointer-events: none;
+    animation: floatHeart 5s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes floatHeart {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.2);
+      opacity: 0;
+    }
+  }
+</style>
     body { font-family: sans-serif; background: #fff0f5; padding: 20px; text-align: center; }
     nav button { margin: 5px; padding: 10px; cursor: pointer; }
     section { display: none; }
